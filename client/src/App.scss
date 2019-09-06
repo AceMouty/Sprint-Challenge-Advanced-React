@@ -79,4 +79,30 @@ img {
 	}
 }
 
+// Styles for player container and also player cards
 
+.player-container{
+	// border: 2px solid red;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	.player-card {
+		border: 5px solid orange;
+		width: 40rem;
+		margin: 1rem;
+
+		h2 {
+			margin-top: 1rem;
+		}
+
+		h3{
+			font-size: 1.5rem;
+			margin-top: 1rem;
+
+			&:last-child{
+				margin: 2rem 0;
+			}
+		}
+	}
+}
