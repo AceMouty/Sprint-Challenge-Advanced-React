@@ -28,14 +28,14 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Name three lifecycle methods and their purposes.
 
-			render: render is used to render your UI to the DOM. When using react classes you MUST use this method to display your UI to the DOM.
+			render : render is used to render your UI to the DOM. When using react classes you MUST use this method to display your UI to the DOM.
 
 			componentDidMount: componentDidMount is used for checking to see that your component has mounted to the DOM. Once it has generally you will do network request in here to get data from an API and do state assignment in here. This method fires after the render method has been completed.
 
 			componentDidUpdate: componentDidUpdate is used when you want to do something based on state change OR change in props. When using componentDidUpdate you need to do some logical checking for specific pieces of state or props within your component. If the check passes you will do something like make another netwrok request. However if the check doesnt pass nothing will happen. You can have multiple checks in componentDidUpdate so that you can watch multiple things withing your component. 
 
 - [ ] What is the purpose of a custom hook?
-
+			
 			With custom hooks we can create our own hook logic and use them anywhere. Its like components but for the logical part of things. The user will never see this. However these are poweful things. When creating custom hooks you are creating logical reusable tools that can do something specific for you based on state. Custom hooks use stateful logic. When using custom hooks it allows us to keep our components cleaner and more readable.
 
 - [ ] Why is it important to test our apps?
