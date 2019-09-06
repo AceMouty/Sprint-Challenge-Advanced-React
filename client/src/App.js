@@ -12,9 +12,15 @@ class App extends React.Component {
 		data: []
 	}
 
+	abortContorller = new AbortController();
+
 	componentDidMount() {
-		axios('http://localhost:5000/api/players')
+		axios('http://localhost:5000/api/players', {signal: this.abortContorller.signal})
 		.then(res => this.setState({data: res.data}))
+	}
+
+	componentWillUnmount() {
+		this.abortContorller.abort();
 	}
 	render(){
 			return (
