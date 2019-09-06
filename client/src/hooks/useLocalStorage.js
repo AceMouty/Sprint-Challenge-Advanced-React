@@ -1,21 +1,26 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
-const useLocalStorage = (key, initalValue) => {
+function useLocalStorage(key, initialValue) {
 	
-	// Setting state based on if there is data in LS, if not then set data to be a value passed into the custom hook
+	// setting state and grabbing data form local storage
 	const [storedValue, setStoredValue] = useState(() => {
+
+		// Grab data from local storage, and evaluate if it exist or not
 		const data = window.localStorage.getItem(key);
-		return data ? JSON.parse(data) : initalValue;
+		return data ? JSON.parse(data) : initialValue;
+
 	})
 
-	// Setter function that we are going to pass up from here
+	// Setter function that we return from our hook to be used.
 	const setValue = value => {
-		setStoredValue(value)
-		localStorage.setItem(key, JSON.stringify(value));
+		// Setting local state to the value passed to setValue
+		setStoredValue(value);
+
+		// storing the value in local storage
+		window.localStorage.setItem(key, JSON.stringify(value));
 	}
 
-
-	return [storedValue, setValue]
+	return [storedValue, setValue];
 }
 
 export default useLocalStorage;
