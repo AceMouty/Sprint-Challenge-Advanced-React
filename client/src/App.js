@@ -1,26 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Components
+import NavBar from './components/Navbar'
+import PlayerCard from './components/PlayerCard'
+// Styles
+import './App.scss';
+
+class App extends React.Component {
+	
+	// _isMounted = false;
+
+	state = {
+		data: []
+	}
+
+	// CancelToken = axios.CancelToken;
+	// source = this.CancelToken.source();
+
+	componentDidMount() {
+		this._isMounted = true;
+
+		axios('http://localhost:5000/api/players')
+		.then(res =>  this._isMounted ? this.setState({data: res.data}) : null)
+	}
+
+	componentWillUnmount() {
+		this._isMounted = false;
+	}
+
+	render(){
+			return (
+			<div className="App">
+				<NavBar/>
+				<div className="player-container">
+					{this.state.data.map(player => {
+						return <PlayerCard key={player.id} player={player}/>
+					})}
+				</div>
+			</div>
+		);
+	}
+  
 }
 
 export default App;
