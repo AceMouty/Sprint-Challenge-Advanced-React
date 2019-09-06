@@ -8,20 +8,27 @@ import PlayerCard from './components/PlayerCard'
 import './App.scss';
 
 class App extends React.Component {
+	
+	// _isMounted = false;
+
 	state = {
 		data: []
 	}
 
-	abortContorller = new AbortController();
+	// CancelToken = axios.CancelToken;
+	// source = this.CancelToken.source();
 
 	componentDidMount() {
-		axios('http://localhost:5000/api/players', {signal: this.abortContorller.signal})
-		.then(res => this.setState({data: res.data}))
+		this._isMounted = true;
+
+		axios('http://localhost:5000/api/players')
+		.then(res =>  this._isMounted ? this.setState({data: res.data}) : null)
 	}
 
 	componentWillUnmount() {
-		this.abortContorller.abort();
+		this._isMounted = false;
 	}
+
 	render(){
 			return (
 			<div className="App">

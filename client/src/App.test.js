@@ -4,12 +4,12 @@ import App from './App';
 import Navbar from './components/Navbar';
 
 // Testing that App component renders to the UI
-test('App renders without crashing', () => {
-	render(<App />);
+test('App renders without crashing', async () => {
+	await render(<App />);
 });
 
 // Testing that Navbar component renders to the UI
-test('Navbar renders without crashing', () => {
-	render(<Navbar />);
+test('Navbar renders without crashing', async () => {
+	await render(<Navbar />);
 });
 
