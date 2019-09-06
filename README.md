@@ -23,9 +23,28 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit the `ANSWERS.md` file to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Why would you use class component over function components (removing hooks from the question)?
+			
+			I dont see a reason as to why you one would use a class over a functional component. Both solutions essentially do the same thing. The only difference is that with class components you have more raw control over you component than what you do with functional components because of the life cycle methods. Other than this both solutions are valid. Also the only time i would see using a class component over a funcitonal component would be if a company's architecture is class based and not functional based.
+
 - [ ] Name three lifecycle methods and their purposes.
+
+			render: render is used to render your UI to the DOM. When using react classes you MUST use this method to display your UI to the DOM.
+
+			componentDidMount: componentDidMount is used for checking to see that your component has mounted to the DOM. Once it has generally you will do network request in here to get data from an API and do state assignment in here. This method fires after the render method has been completed.
+
+			componentDidUpdate: componentDidUpdate is used when you want to do something based on state change OR change in props. When using componentDidUpdate you need to do some logical checking for specific pieces of state or props within your component. If the check passes you will do something like make another netwrok request. However if the check doesnt pass nothing will happen. You can have multiple checks in componentDidUpdate so that you can watch multiple things withing your component. 
+
 - [ ] What is the purpose of a custom hook?
+
+			With custom hooks we can create our own hook logic and use them anywhere. Its like components but for the logical part of things. The user will never see this. However these are poweful things. When creating custom hooks you are creating logical reusable tools that can do something specific for you based on state. Custom hooks use stateful logic. When using custom hooks it allows us to keep our components cleaner and more readable.
+
 - [ ] Why is it important to test our apps?
+			
+			Testing our apps is important for many reasons some of them include...
+			1. Gives us assurence
+			2. Gives us confidence in what our code does before deploying
+			3. Makes clients comfortable and affirms to them that our code is doing what they expect it to be doing
+			4. Helps us identify bugs faster
 
 ## Project Set Up
 
